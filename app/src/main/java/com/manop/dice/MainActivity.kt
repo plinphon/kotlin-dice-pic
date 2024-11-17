@@ -1,35 +1,30 @@
-package com.manop.homework4_dice
+package com.manop.dice
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.manop.dice.R
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        // Set up the roll button to trigger dice roll
         val rollButton: Button = findViewById(R.id.button)
         rollButton.setOnClickListener {
             rollDice()
         }
-
     }
 
-    class Dice(val numSides: Int) {
-
-        fun roll(): Int {
-            return (1..numSides).random()
-        }
-    }
-
+    // Roll dice and update the TextView with the result
     private fun rollDice() {
-        val dice = Dice(6)
+        val dice = Dice(6) // Creates a six-sided dice
         val diceRoll = dice.roll()
+
+        // Update the result text view
         val resultTextView: TextView = findViewById(R.id.textView)
         resultTextView.text = diceRoll.toString()
     }

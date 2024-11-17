@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.manop.homework4_dice"
+    namespace = "com.manop.dice"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.manop.homework4_dice"
+        applicationId = "com.manop.dice"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

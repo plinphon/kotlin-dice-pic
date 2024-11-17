@@ -1,4 +1,4 @@
-package com.manop.homework4_dice
+package com.manop.dice
 
 import org.junit.Test
 
