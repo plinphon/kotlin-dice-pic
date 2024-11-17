@@ -2,9 +2,8 @@ package com.manop.dice
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.manop.dice.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,20 +11,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Set up the roll button to trigger dice roll
         val rollButton: Button = findViewById(R.id.button)
         rollButton.setOnClickListener {
             rollDice()
         }
     }
 
-    // Roll dice and update the TextView with the result
     private fun rollDice() {
-        val dice = Dice(6) // Creates a six-sided dice
-        val diceRoll = dice.roll()
+        val diceRoll = (1..6).random()
+        val diceImageView: ImageView = findViewById(R.id.diceImageView)
 
-        // Update the result text view
-        val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = diceRoll.toString()
+
+        val drawableResource = when (diceRoll) {
+            1 -> R.drawable.dice1
+            2 -> R.drawable.dice2
+            3 -> R.drawable.dice3
+            4 -> R.drawable.dice4
+            5 -> R.drawable.dice5
+            else -> R.drawable.dice6
+        }
+
+        diceImageView.setImageResource(drawableResource)
     }
 }
